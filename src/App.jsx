@@ -1,14 +1,32 @@
+import { useState } from "react"
 
 function App() {
+ const [name, setname] = useState("")
+  const Bus=(e)=>{
+    e.preventDefault()
+   console.log(name);
+   
+  }
   return (
     <section  className="bg-black  h-screen" >
 
-      <form className="text-white flex justify-between pr-10" >
+
+      <form onSubmit={(e)=>{
+        Bus(e)
+        
+      }}
+       className="text-white flex justify-between pr-10" >
+
 
           <div className="flex w-1/2 items-start gap-3 ml-10 flex-col p-5 " >
+
         <input className="px-5 w-full py-2 border-2 rounded" 
           type="text"
           placeholder="Enter Task Heading "
+          value={name}
+        onChange={(e)=>{
+          setname(e.target.value)
+        }}
         
 
           />
@@ -22,9 +40,10 @@ function App() {
 
        
            </div>
-           <img className="h-59" src="https://static.vecteezy.com/system/resources/thumbnails/073/034/096/small/cute-lavender-spiral-notebook-with-happy-face-illustration-free-png.png" alt="" />
+           {/* <img className="h-59" src="https://static.vecteezy.com/system/resources/thumbnails/073/034/096/small/cute-lavender-spiral-notebook-with-happy-face-illustration-free-png.png" alt="" /> */}
       </form>
     </section>
+    
   )
 }
 
