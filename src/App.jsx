@@ -17,7 +17,7 @@ function App() {
 
   return (
 
-    <section  className="bg-black  h-screen" >
+    <section  className="bg-black  h-screen lg:flex" >
 
 
       <form onSubmit={(e)=>{
@@ -25,10 +25,10 @@ function App() {
         
       }}
 
-       className="text-white flex justify-between pr-10" >
+       className="text-white flex   flex-col gap-5  p-5 lg:w-1/2  " >
 
 
-          <div className="flex w-1/2 items-start gap-3 ml-10 flex-col p-5 " >
+          
 
         <input className="px-5 w-full py-2 border-2 rounded focus:outline-none" 
           type="text"
@@ -53,9 +53,12 @@ function App() {
            <button  className="text-black bg-white w-full py-2 px-5 rounded" > click me </button>
 
        
-           </div>
+          
           
       </form>
+      <div className="lg:w-1/2 bg-red-400 p-5">
+       <div className="w-40 h-50 bg-amber-50 " >  </div></div>
+     
     </section>
     
   )
