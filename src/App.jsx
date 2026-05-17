@@ -22,7 +22,7 @@ function App() {
 
   return (
 
-    <section  className="bg-black  h-screen lg:flex " >
+    <section  className="bg-black min-h-screen lg:flex " >
 
       <form onSubmit={(e)=>{
         Bus(e)
@@ -51,23 +51,21 @@ function App() {
            <button  className="text-black bg-white w-full py-2 px-5 rounded font-bold active:scale-95 " > Add Note </button>
           
       </form>
-      <div className="lg:w-1/2 lg:border-l-2 border-white p-4 lg:p-10 h-full ">
+      <div className="lg:w-1/2 lg:border-l-2 border-white p-4 lg:p-10  ">
 
       <h1 className="font-bold text-2xl text-white">Recent Notes</h1>
 
-      <div className="flex h-fit gap-4 flex-wrap  items-start  overflow-auto "> 
+      <div className="flex h-96 gap-4 flex-wrap  items-start  overflow-auto "> 
 
          {task.map((elm ,idx)=>{
-        return( <div key={idx} className="w-42 h-62 bg-center bg-cover bg-[url('https://static.vecteezy.com/system/resources/thumbnails/037/152/684/small/sticky-note-paper-background-free-png.png')] rounded-2xl p-5 overflow-auto">
-          <h3 className="w-fit  m-auto font-bold text-xl ">{elm.name}</h3>
-          <p className="mt-1 border-t-2 text-gray-500 leading-tight">{elm.dtl}</p>
+        return( <div key={idx} id="card" className="w-44 h-64 bg-center bg-cover p-5 flex flex-col flex-wrap bg-[url('https://static.vecteezy.com/system/resources/thumbnails/037/152/684/small/sticky-note-paper-background-free-png.png')]  ">
+          <h3 className="w-fit   font-bold text-xl ">{elm.name}</h3>
+          <p className="mt-1 w-fit  border-t-2 text-gray-500 leading-tight ">{elm.dtl}</p>
           
         </div>)
       })}
        
          
-       
-        
       </div>
      
      
