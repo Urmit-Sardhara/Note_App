@@ -3,13 +3,18 @@ import { useState } from "react"
 function App() {
  const [name, setname] = useState("")
  const [dtl, setdtl] = useState("")
+ const [task, settask] = useState([])
 
   const Bus=(e)=>{
-
     e.preventDefault()
-   console.log("task Heading is - ",name);
-   console.log("ditaisl is - ",dtl);
-   
+
+      const copyTask=[...task]
+      copyTask.push({name,dtl})
+      settask(copyTask)
+  //  console.log("task Heading is - ",name);
+  //  console.log("ditaisl is - ",dtl);
+  console.log(copyTask);
+  
    setname("")
    setdtl("")
    
@@ -43,7 +48,7 @@ function App() {
            }}
            />
          
-           <button  className="text-black bg-white w-full py-2 px-5 rounded font-bold " > Add Note </button>
+           <button  className="text-black bg-white w-full py-2 px-5 rounded font-bold active:scale-95 " > Add Note </button>
           
       </form>
       <div className="lg:w-1/2 lg:border-l-2 border-white p-4 lg:p-10 h-full ">
@@ -51,12 +56,20 @@ function App() {
       <h1 className="font-bold text-2xl text-white">Recent Notes</h1>
 
       <div className="flex gap-4 flex-wrap  h-full overflow-auto "> 
-        <div className="w-40 h-52 bg-amber-50 rounded-2xl p-2"></div>
+
+         {task.map((elm)=>{
+        return( <div className="w-40 h-52 bg-amber-50 rounded-2xl p-3">
+          <h3 className="w-fit m-auto font-bold text-xl ">{elm.name}</h3>
+          <p className="mt-2 border-t-2">{elm.dtl}</p>
+
+        </div>)
+      })}
+       
          
        
         
       </div>
-      
+     
      
       </div>
     </section>
