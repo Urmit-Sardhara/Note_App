@@ -55,12 +55,12 @@ function App() {
 
       <h1 className="font-bold text-2xl text-white">Recent Notes</h1>
 
-      <div className="flex gap-4 flex-wrap  h-full overflow-auto "> 
+      <div className="flex gap-4 flex-wrap items-start h-full overflow-auto "> 
 
          {task.map((elm)=>{
-        return( <div className="w-40 h-52 bg-amber-50 rounded-2xl p-3">
-          <h3 className="w-fit m-auto font-bold text-xl ">{elm.name}</h3>
-          <p className="mt-2 border-t-2">{elm.dtl}</p>
+        return( <div className="w-42 h-62 bg-center bg-cover bg-[url('https://static.vecteezy.com/system/resources/thumbnails/037/152/684/small/sticky-note-paper-background-free-png.png')] rounded-2xl p-5">
+          <h3 className="w-fit  m-auto font-bold text-xl ">{elm.name}</h3>
+          <p className="mt-1 border-t-2 text-gray-500 leading-tight">{elm.dtl}</p>
 
         </div>)
       })}
