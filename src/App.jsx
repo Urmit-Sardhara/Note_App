@@ -13,13 +13,21 @@ function App() {
       settask(copyTask)
   //  console.log("task Heading is - ",name);
   //  console.log("ditaisl is - ",dtl);
-  console.log(copyTask);
+  // console.log(copyTask);
   
    setname("")
    setdtl("")
    
   }
-
+  const remo=(idx)=>{
+    const copyTask=[...task];
+    // console.log(copyTask[idx]);
+    copyTask.splice(idx,1)
+    settask(copyTask)
+    
+    // console.log( {idx},"delte thabva lagyu chhe bhia ");
+    
+  }
   return (
 
     <section  className="bg-black min-h-screen lg:flex " >
@@ -55,13 +63,18 @@ function App() {
 
       <h1 className="font-bold text-2xl text-white">Recent Notes</h1>
 
-      <div className="flex h-96 gap-4 flex-wrap  items-start  overflow-auto "> 
+      <div className="flex h-96 gap-4 flex-wrap justify-around items-start  overflow-auto "> 
 
          {task.map((elm ,idx)=>{
-        return( <div key={idx} id="card" className="w-44 h-64 bg-center bg-cover p-5 flex flex-col flex-wrap bg-[url('https://static.vecteezy.com/system/resources/thumbnails/037/152/684/small/sticky-note-paper-background-free-png.png')]  ">
-          <h3 className="w-fit   font-bold text-xl ">{elm.name}</h3>
+        return( <div key={idx} id="card" className="w-44 h-64 bg-center bg-cover p-5 flex flex-col justify-between flex-wrap bg-[url('https://static.vecteezy.com/system/resources/thumbnails/037/152/684/small/sticky-note-paper-background-free-png.png')]  ">
+          <div>
+            <h3 className="w-fit   font-bold text-xl ">{elm.name}</h3>
           <p className="mt-1 w-fit  border-t-2 text-gray-500 leading-tight ">{elm.dtl}</p>
+          </div>
           
+          <button onClick={()=>{
+            remo(idx)
+          }} className="bg-red-500 rounded-2xl text-white font-bold">Delete</button>
         </div>)
       })}
        
